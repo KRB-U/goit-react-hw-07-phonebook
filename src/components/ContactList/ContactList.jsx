@@ -1,12 +1,13 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, ContactItem } from './ContactList.styled';
 
 // import { deleteContact } from 'components/redux/contactSlice';
+import { deleteContact } from 'components/redux/operations';
 import { getContacts, getFilter } from 'components/redux/selectors';
 import toast from 'react-hot-toast';
 
 const ContactList = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const { items } = useSelector(getContacts);
 
@@ -22,7 +23,7 @@ const ContactList = () => {
   const filteredContacts = getVisibleContacts();
 
   const handleDeleteContact = id => {
-    // dispatch(deleteContact(id));
+    dispatch(deleteContact(id));
     toast.success('Видалено');
   };
 
