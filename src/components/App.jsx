@@ -1,5 +1,5 @@
 import { ContactForm } from 'components/ContactForm/ContactForm';
-// import { ContactList } from './ContactList/ContactList';
+import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 
 //STYLED
@@ -16,7 +16,7 @@ import { fetchContacts } from './redux/operations';
 
 const App = () => {
   const dispatch = useDispatch();
-  const { items } = useSelector(getContacts);
+  const { items, isLoading, error } = useSelector(getContacts);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -29,8 +29,8 @@ const App = () => {
       <TitleContacts>Contacts</TitleContacts>
       <Filter />
 
-      {/* {isLoading && <ContactList />} */}
-      {/* {error && <p>{error}</p>} */}
+      {isLoading && <ContactList />}
+      {error && <p>{error}</p>}
       <p>{items.length > 0 && JSON.stringify(items, null, 2)}</p>
 
       <Toaster {...toastConfig} />
