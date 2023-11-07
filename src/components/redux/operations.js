@@ -33,5 +33,5 @@ export const fetchContacts = createAsyncThunk(
 //   }
 // };
 
-const addContact = () => {};
-const deleteContact = () => {};
+// const addContact = () => {};
+// const deleteContact = () => {};

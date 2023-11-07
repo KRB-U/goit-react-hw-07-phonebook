@@ -1,5 +1,5 @@
 import { ContactForm } from 'components/ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
+// import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 
 //STYLED
