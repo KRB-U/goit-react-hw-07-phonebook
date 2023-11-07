@@ -9,7 +9,8 @@ const ContactList = () => {
   // const dispatch = useDispatch();
 
   // const allContacts = useSelector(getContacts);
-  const { items } = useSelector(getContacts);
+  const { items, isLoading, error } = useSelector(getContacts);
+  console.log(items);
   const filter = useSelector(getFilter);
 
   const getVisibleContacts = () => {
