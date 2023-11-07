@@ -6,12 +6,11 @@ import { getContacts, getFilter } from 'components/redux/selectors';
 import toast from 'react-hot-toast';
 
 const ContactList = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // const allContacts = useSelector(getContacts);
-  const { items, isLoading, error } = useSelector(getContacts);
+  const { items } = useSelector(getContacts);
   const filter = useSelector(getFilter);
-  console.log(items);
 
   const getVisibleContacts = () => {
     const normalizedFilter = filter.toLowerCase();
