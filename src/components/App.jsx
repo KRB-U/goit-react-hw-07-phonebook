@@ -16,7 +16,8 @@ import { fetchContacts } from './redux/operations';
 
 const App = () => {
   const dispatch = useDispatch();
-  const { items, isLoading, error } = useSelector(getContacts);
+  const { isLoading, error } = useSelector(getContacts);
+  // console.log(items);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -28,11 +29,8 @@ const App = () => {
       <ContactForm />
       <TitleContacts>Contacts</TitleContacts>
       <Filter />
-
-      {isLoading && <ContactList />}
-      {error && <p>{error}</p>}
-      <p>{items.length > 0 && JSON.stringify(items, null, 2)}</p>
-
+      {isLoading && !error && <b>Request in progress...</b>}
+      <ContactList />
       <Toaster {...toastConfig} />
     </ContainerWrapper>
   );

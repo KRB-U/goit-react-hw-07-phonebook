@@ -1,7 +1,8 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 // import { addContact } from 'components/redux/action';
 // import { addContact } from 'components/redux/contactSlice';
+import { addContact } from 'components/redux/operations';
 import { getContacts } from 'components/redux/selectors';
 import { nanoid } from 'nanoid';
 
@@ -19,17 +20,17 @@ import {
 
 const ContactForm = () => {
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [avatar, setAvatar] = useState('');
 
-  // const dispatch = useDispatch();
-  const allContacts = useSelector(getContacts);
+  const dispatch = useDispatch();
+  const { items } = useSelector(getContacts);
 
   const formNameUniqueKey = nanoid(10);
   const formNumberUniqueKey = nanoid(7);
 
   const reset = () => {
     setName('');
-    setNumber('');
+    setAvatar('');
   };
 
   const handleChange = evt => {
@@ -39,8 +40,8 @@ const ContactForm = () => {
       case 'name':
         setName(value);
         break;
-      case 'number':
-        setNumber(value);
+      case 'avatar':
+        setAvatar(value);
         break;
 
       default:
@@ -51,7 +52,7 @@ const ContactForm = () => {
   const handleSubmit = evt => {
     evt.preventDefault();
 
-    const isNameInContacts = allContacts.some(
+    const isNameInContacts = items.some(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
 
@@ -60,7 +61,7 @@ const ContactForm = () => {
       return;
     }
 
-    // dispatch(addContact({ name, number }));
+    dispatch(addContact({ name, avatar }));
     toast.success('Додано');
     reset();
   };
@@ -84,9 +85,9 @@ const ContactForm = () => {
           Number
           <InputPhone
             type="tel"
-            name="number"
+            name="avatar"
             required
-            value={number}
+            value={avatar}
             onChange={handleChange}
             id={formNumberUniqueKey}
           />

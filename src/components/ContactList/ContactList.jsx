@@ -8,9 +8,8 @@ import toast from 'react-hot-toast';
 const ContactList = () => {
   // const dispatch = useDispatch();
 
-  // const allContacts = useSelector(getContacts);
-  const { items, isLoading, error } = useSelector(getContacts);
-  console.log(items);
+  const { items } = useSelector(getContacts);
+
   const filter = useSelector(getFilter);
 
   const getVisibleContacts = () => {
@@ -30,9 +29,9 @@ const ContactList = () => {
   return (
     <div>
       <ul>
-        {filteredContacts.map(({ name, number, id }) => (
+        {filteredContacts.map(({ name, avatar, id }) => (
           <ContactItem key={id}>
-            {name}: {number}
+            {name}: {avatar}
             <Button type="submit" onClick={() => handleDeleteContact(id)}>
               Delete
             </Button>
