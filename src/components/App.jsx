@@ -1,3 +1,4 @@
+// COMPONENTS
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
@@ -9,15 +10,19 @@ import { TitlePhonebook, TitleContacts, ContainerWrapper } from './App.styled';
 import { Toaster } from 'react-hot-toast';
 import { toastConfig } from 'components/toastConfig';
 
-import { useDispatch, useSelector } from 'react-redux';
+// TOOLKIT
 import { useEffect } from 'react';
-import { selectContacts } from './redux/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+
+//ACTIONS-MOVEMENT
+import { selectIsLoading, selectError } from './redux/selectors';
 import { fetchContacts } from './redux/operations';
 
 const App = () => {
   const dispatch = useDispatch();
-  const { isLoading, error } = useSelector(selectContacts);
-  // console.log(items);
+
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchContacts());

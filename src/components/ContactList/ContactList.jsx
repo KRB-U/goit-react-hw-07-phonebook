@@ -1,13 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, ContactItem } from './ContactList.styled';
 
-// import { deleteContact } from 'components/redux/contactSlice';
 import { deleteContact } from 'components/redux/operations';
-import {
-  selectContacts,
-  selectFilter,
-  selectVisibleContacts,
-} from 'components/redux/selectors';
+import { selectVisibleContacts } from 'components/redux/selectors';
 import toast from 'react-hot-toast';
 
 const ContactList = () => {
