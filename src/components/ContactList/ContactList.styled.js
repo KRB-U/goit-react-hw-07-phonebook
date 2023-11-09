@@ -23,11 +23,11 @@ export const Button = styled.button`
   padding: 10px;
 
   color: white;
-  background-color: #666666;
+  background-color: #633366;
   border: none;
 
   &:hover {
-    background-color: #007bff;
+    background-color: #007cca;
   }
 
   &:active {

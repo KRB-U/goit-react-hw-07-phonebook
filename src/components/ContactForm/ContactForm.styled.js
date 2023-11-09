@@ -35,14 +35,10 @@ const InputPhone = styled.input`
 // `;
 
 const Button = styled.button`
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
-
   border: none;
   border-radius: 5px;
 
-  background-color: #4caf50;
+  background-color: #1caf50;
   cursor: pointer;
 
   width: fit-content;
@@ -51,7 +47,7 @@ const Button = styled.button`
   color: black;
 
   &:hover {
-    background-color: green;
+    background-color: #113350;
     color: white;
   }
 `;
