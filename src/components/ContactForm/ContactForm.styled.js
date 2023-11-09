@@ -30,10 +30,6 @@ const InputPhone = styled.input`
   margin-right: 20px;
 `;
 
-// const Form = styled.form`
-
-// `;
-
 const Button = styled.button`
   border: none;
   border-radius: 5px;
