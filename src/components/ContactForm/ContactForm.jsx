@@ -1,9 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-// import { addContact } from 'components/redux/action';
-// import { addContact } from 'components/redux/contactSlice';
 import { addContact } from 'components/redux/operations';
-import { selectContactsState } from 'components/redux/selectors';
+import { selectContacts } from 'components/redux/selectors';
 import { nanoid } from 'nanoid';
 
 // NOTIFY
@@ -23,7 +21,7 @@ const ContactForm = () => {
   const [avatar, setAvatar] = useState('');
 
   const dispatch = useDispatch();
-  const { items } = useSelector(selectContactsState);
+  const allContacts = useSelector(selectContacts);
 
   const formNameUniqueKey = nanoid(10);
   const formNumberUniqueKey = nanoid(7);
@@ -52,7 +50,7 @@ const ContactForm = () => {
   const handleSubmit = evt => {
     evt.preventDefault();
 
-    const isNameInContacts = items.some(
+    const isNameInContacts = allContacts.some(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
 

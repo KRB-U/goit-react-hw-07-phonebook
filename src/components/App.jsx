@@ -35,6 +35,7 @@ const App = () => {
       <TitleContacts>Contacts</TitleContacts>
       <Filter />
       {isLoading && !error && <b>Request in progress...</b>}
+      {error && <p>{error}</p>}
       <ContactList />
       <Toaster {...toastConfig} />
     </ContainerWrapper>
