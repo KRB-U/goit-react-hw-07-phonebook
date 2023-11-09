@@ -8,14 +8,13 @@ export const selectIsLoading = state => state.contacts.isLoading;
 
 export const selectError = state => state.contacts.error;
 
-export const selectVisibleContacts = state => {
-  const contacts = selectContacts(state);
+export const selectVisibleContacts = createSelector(
+  [selectContacts, selectFilter],
+  (contacts, filterValue) => {
+    const normalizedFilter = filterValue.toLowerCase();
 
-  const filterValue = selectFilter(state);
-
-  const normalizedFilter = filterValue.toLowerCase();
-
-  return contacts.filter(contact =>
-    contact.name.toLowerCase().includes(normalizedFilter)
-  );
-};
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  }
+);

@@ -1,11 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { addContact } from 'components/redux/operations';
 import { selectContacts } from 'components/redux/selectors';
-import { nanoid } from 'nanoid';
 
 // NOTIFY
 import toast from 'react-hot-toast';
+
+import { nanoid } from 'nanoid';
 
 import {
   FormContainer,
