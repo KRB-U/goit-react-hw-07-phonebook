@@ -3,7 +3,7 @@ import { useState } from 'react';
 // import { addContact } from 'components/redux/action';
 // import { addContact } from 'components/redux/contactSlice';
 import { addContact } from 'components/redux/operations';
-import { getContacts } from 'components/redux/selectors';
+import { selectContacts } from 'components/redux/selectors';
 import { nanoid } from 'nanoid';
 
 // NOTIFY
@@ -23,7 +23,7 @@ const ContactForm = () => {
   const [avatar, setAvatar] = useState('');
 
   const dispatch = useDispatch();
-  const { items } = useSelector(getContacts);
+  const { items } = useSelector(selectContacts);
 
   const formNameUniqueKey = nanoid(10);
   const formNumberUniqueKey = nanoid(7);

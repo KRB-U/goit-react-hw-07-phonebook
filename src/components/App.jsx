@@ -11,12 +11,12 @@ import { toastConfig } from 'components/toastConfig';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getContacts } from './redux/selectors';
+import { selectContacts } from './redux/selectors';
 import { fetchContacts } from './redux/operations';
 
 const App = () => {
   const dispatch = useDispatch();
-  const { isLoading, error } = useSelector(getContacts);
+  const { isLoading, error } = useSelector(selectContacts);
   // console.log(items);
 
   useEffect(() => {

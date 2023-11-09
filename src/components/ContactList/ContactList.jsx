@@ -3,15 +3,15 @@ import { Button, ContactItem } from './ContactList.styled';
 
 // import { deleteContact } from 'components/redux/contactSlice';
 import { deleteContact } from 'components/redux/operations';
-import { getContacts, getFilter } from 'components/redux/selectors';
+import { selectContacts, selectFilter } from 'components/redux/selectors';
 import toast from 'react-hot-toast';
 
 const ContactList = () => {
   const dispatch = useDispatch();
 
-  const { items } = useSelector(getContacts);
+  const { items } = useSelector(selectContacts);
 
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
 
   const getVisibleContacts = () => {
     const normalizedFilter = filter.toLowerCase();
